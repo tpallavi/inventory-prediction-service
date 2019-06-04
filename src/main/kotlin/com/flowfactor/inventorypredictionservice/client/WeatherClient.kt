@@ -16,11 +16,14 @@ class WeatherClient(
 
     private val logger = KotlinLogging.logger(this.javaClass.canonicalName)
 
-    fun getLocation() {
-        logger.info("Getting all Verification Methods from VerifyInvestor")
+    fun getLocation() : String {
+        logger.info("Getting location for London")
 
-        val url = "https://www.metaweather.com/api/location/search/?query=san"
-        val getBookingResponse = restTemplate.getForEntity(URI.create(url), String::class.java)
+        val url = "https://www.metaweather.com/api/location/search/?query=London"
+       val getBookingResponse = restTemplate.getForEntity(URI.create(url), String::class.java)
+       // println(getBookingResponse.body)
+        return getBookingResponse.body!!
+        //return ""
 //        return restTemplate.exchange(
 //                uri("/verification_requests/verification_methods"),
 //                HttpMethod.GET,

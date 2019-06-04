@@ -1,0 +1,77 @@
+{
+  "data" : {
+    "pairs" : [ {
+      "request" : {
+        "path" : [ {
+          "matcher" : "exact",
+          "value" : "/api/location/search/"
+        } ],
+        "method" : [ {
+          "matcher" : "exact",
+          "value" : "GET"
+        } ],
+        "destination" : [ {
+          "matcher" : "exact",
+          "value" : "www.metaweather.com"
+        } ],
+        "scheme" : [ {
+          "matcher" : "exact",
+          "value" : "https"
+        } ],
+        "query" : {
+          "query" : [ {
+            "matcher" : "exact",
+            "value" : "London"
+          } ]
+        },
+        "body" : [ {
+          "matcher" : "exact",
+          "value" : ""
+        } ],
+        "headers" : {
+          "Accept-Encoding" : [ {
+            "matcher" : "exact",
+            "value" : "gzip"
+          } ],
+          "Connection" : [ {
+            "matcher" : "exact",
+            "value" : "Keep-Alive"
+          } ],
+          "User-Agent" : [ {
+            "matcher" : "exact",
+            "value" : "okhttp/3.12.0"
+          } ]
+        }
+      },
+      "response" : {
+        "status" : 200,
+        "body" : "[{\"title\":\"London\",\"location_type\":\"City\",\"woeid\":44418,\"latt_long\":\"51.506321,-0.12714\"}]",
+        "encodedBody" : false,
+        "templated" : false,
+        "headers" : {
+          "Allow" : [ "GET, HEAD, OPTIONS" ],
+          "Content-Language" : [ "en" ],
+          "Content-Type" : [ "application/json" ],
+          "Date" : [ "Tue, 04 Jun 2019 06:46:39 GMT" ],
+          "Hoverfly" : [ "Was-Here" ],
+          "Server" : [ "Google Frontend" ],
+          "Strict-Transport-Security" : [ "max-age=2592000; includeSubDomains" ],
+          "Transfer-Encoding" : [ "chunked" ],
+          "Vary" : [ "Accept-Language, Cookie" ],
+          "X-Cloud-Trace-Context" : [ "7017bf019fd701c1d1c02354c65cb832" ],
+          "X-Content-Type-Options" : [ "nosniff" ],
+          "X-Frame-Options" : [ "DENY" ],
+          "X-Xss-Protection" : [ "1; mode=block" ]
+        }
+      }
+    } ],
+    "globalActions" : {
+      "delays" : [ ]
+    }
+  },
+  "meta" : {
+    "schemaVersion" : "v5",
+    "hoverflyVersion" : "v1.0.0",
+    "timeExported" : "2019-06-04T00:46:40-06:00"
+  }
+}
