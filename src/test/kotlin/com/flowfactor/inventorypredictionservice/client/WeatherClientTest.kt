@@ -1,27 +1,17 @@
 package com.flowfactor.inventorypredictionservice.client
 
-import com.flowfactor.inventorypredictionservice.config.JacksonConfig
 import com.flowfactor.inventorypredictionservice.config.RestTemplateConfig
 import io.specto.hoverfly.junit.core.Hoverfly
-import io.specto.hoverfly.junit.core.HoverflyMode
-import io.specto.hoverfly.junit.core.SimulationSource
 import io.specto.hoverfly.junit5.HoverflyExtension
-import io.specto.hoverfly.junit5.api.HoverflyCapture
 import io.specto.hoverfly.junit5.api.HoverflyConfig
-import io.specto.hoverfly.junit5.api.HoverflyCore
 import io.specto.hoverfly.junit5.api.HoverflySimulate
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.springframework.web.client.RestTemplate
-import java.net.URI
-import java.nio.file.Paths
 import okhttp3.OkHttpClient
-import io.specto.hoverfly.junit.core.SslConfigurer
 import okhttp3.Request
 
 
@@ -33,7 +23,7 @@ import okhttp3.Request
         type = HoverflySimulate.SourceType.FILE),
         config = HoverflyConfig(captureAllHeaders = true, proxyLocalHost = true),enableAutoCapture = true)
 @ExtendWith(SpringExtension::class, HoverflyExtension::class)
-@SpringBootTest(classes = arrayOf(JacksonConfig::class, RestTemplateConfig::class,WeatherClient::class))
+@SpringBootTest(classes = arrayOf(RestTemplateConfig::class,WeatherClient::class))
 class WeatherClientTest {
 
     @Autowired
