@@ -1,6 +1,7 @@
 package com.flowfactor.inventorypredictionservice.client
 
 import com.flowfactor.inventorypredictionservice.config.RestTemplateConfig
+import com.flowfactor.inventorypredictionservice.dto.WeatherResponseDto
 import mu.KotlinLogging
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -16,11 +17,12 @@ class WeatherClient(
 
     private val logger = KotlinLogging.logger(this.javaClass.canonicalName)
 
-    fun getWeatherByLocation(location: String) {
+    fun getWeatherByLocation(location: String) :WeatherResponseDto {
         logger.info("Getting all Verification Methods from VerifyInvestor")
 
-        val url = "https://www.metaweather.com/api/location/search/?query="+location
-        val getBookingResponse = restTemplate.getForEntity(URI.create(url), String::class.java)
+        val url = "https://www.metaweather.com/api/location/44418" //london
+        val getBookingResponse = restTemplate.getForEntity(URI.create(url), WeatherResponseDto::class.java)
+        return getBookingResponse.body!!
 //        return restTemplate.exchange(
 //                uri("/verification_requests/verification_methods"),
 //                HttpMethod.GET,

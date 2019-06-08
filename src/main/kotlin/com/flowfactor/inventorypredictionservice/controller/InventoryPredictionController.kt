@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-
+//curl http://localhost:8080/prediction/1/2
 @RestController
 @RequestMapping("/prediction")
 class InventoryPredictionController(private val inventoryPredictionService: InventoryPredictionService) {

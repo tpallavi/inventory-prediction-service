@@ -28,10 +28,11 @@ class InventoryPredictionService(private val weatherClient: WeatherClient) {
         itemsByStore = HashMap<StoreLocation, Map<Long, ItemInventoryDTO>>()
 
         //create stores with inventory
-        for (i in 1..10) {
+        for (i in 1..5) {
             val weather = weatherClient.getWeatherByLocation("London")
+            logger.info { weather }
             //TODO use weather variable (result) in the StoreLocation object
-            val store = StoreLocation(java.lang.Long.valueOf(i.toLong()), "London","bad")
+            val store = StoreLocation(java.lang.Long.valueOf(i.toLong()), "London",weather.consolidatedWeather[i-1].weatherStateName)
             storeLocations.put(store.storeId, store)
 
             //create some items for the store
